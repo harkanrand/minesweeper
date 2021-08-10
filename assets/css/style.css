@@ -1,0 +1,308 @@
+html {
+    box-sizing: border-box
+  }
+  
+  /* The Universal Selector */
+  *, /* All elements*/
+  *::before, /* All ::before pseudo-elements */
+  *::after { /* All ::after pseudo-elements */
+    /* height & width will now include border & padding by default
+       but can be over-ridden as needed */
+    box-sizing: inherit;
+  }
+  
+  /* resets font size to be 62.5% of the user preference - 
+       in most browser configurations this will be 10px */
+  :root {
+      font-size: 62.5%
+  }
+  
+  body {
+    background: linear-gradient(#a7db72, #5e7942);
+    /* Use a system font, if none are available use an available sans-sarif font */
+    font-family: 'Abril Fatface', cursive;
+    font-size: 2.4rem;
+    color: white;
+
+    min-height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+
+    --primary: #d62828;
+    --bg-light: #a7db72;
+    --bg-dark: #5e7942;
+    --board: #8B6555;
+    --clear: #B99A8D;
+    --accent: #ffd651;
+    --darkbrown: #381a20
+}
+
+button, select {
+    font-family: 'Abril Fatface', cursive;
+    border: solid 2px var(--bg-dark);
+}
+button {
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: #fff;
+    color: #333;
+}
+
+button:active {
+    color: #fff;
+    background-color: var(--bg-dark);
+}
+
+select {
+    padding: 4px 16px;
+    border-radius: 6px;   
+    text-align: center;
+    color: #333;
+}
+
+#controls {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    height: 8rem;
+}
+
+
+#help {
+    margin: 0 30px 0 0;
+    cursor: pointer;
+    background: radial-gradient(var(--bg-dark) 0%, transparent 75%);
+    width: 7.5rem;
+    margin-bottom: -8px;
+}
+
+#resetButton {
+    margin: 0 0 0 30px;
+    width: auto;
+}
+
+#difficulty {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-shadow: black 2px 2px 5px;
+}
+
+#title {
+    display: flex;
+    margin: 0;
+    padding: 1vmin 0 0 0;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100vw;
+    height: 12vmin;
+    color: var(--primary);
+    text-shadow: white 2px 2px 10px;
+    font-size: 8vmin;
+    font-family: 'Abril Fatface', cursive;
+    background-color: #C5E7FC;
+    background-image: url('../img/cta.png');
+    background-size: contain;
+    background-repeat: repeat-x;
+    background-position: bottom;
+}
+
+label, button, option, select {
+    font-size: 3vmin;
+}
+
+#grid {
+    margin: 0 0 5vmin 0;
+    display: grid;
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+    color: #333;
+    user-select: none;
+    border: solid 1px #e3e3e3;
+    max-width: 95vw;
+    
+}
+
+#grid > .cell {
+    border: solid 1px #e3e3e3;
+    background: radial-gradient(#a88475, #6b452f);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4vmin;
+    color: #f3f3f3;
+    text-shadow: black 2px 2px 5px;
+    width: 5vmin;
+    height: 5vmin;
+}
+
+#grid.small > .cell {
+    width: 8vmin;
+    height: 8vmin;
+}
+
+#grid.medium > .cell {
+    width: 6vmin;
+    height: 6vmin;
+}
+
+#grid > .clear {
+    background: var(--clear);
+}
+
+img.flag, img.mine {
+    width: 80%;
+    height: 80%;
+}
+
+#info {
+    margin: 1.6rem 0 0.2rem 0;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 70vmin;
+    font-size: 2rem;
+    text-shadow: black 2px 2px 5px;
+}
+
+#flags-left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#flags-left > * {
+    margin: 0 5px;
+}
+#flags-left span {
+    font-size: 2.5rem;
+    color: var(--accent);
+}
+
+#flags-left > img {
+    width: 30px;
+    height: 30px;
+}
+
+.time {
+    color: var(--accent);
+    font-size: 2.5rem;
+}
+
+#copy {
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#modal {
+    display: none;
+    background-color: rgba(200, 200, 200, .6);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+
+#helpText, #messageText {
+    display: none;
+    width: 80vw;
+    max-width: 800px;
+    font-size: 4vmin;
+    line-height: 5vmin;
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 10px;
+    color: #333;
+    padding: 4rem;
+}
+
+#helpText ul {
+    list-style-type: square;
+    margin: 0;
+}
+
+#helpText li {
+    margin: 0 0 15px 0;
+}
+
+#helpText li::marker {
+    color: #333;
+}
+
+#helpText strong {
+    color: var(--primary);
+}
+
+#messageText {
+    text-align: center;
+    color: #333;
+}
+
+#messageText h1 {
+    font-family: 'Abril Fatface', cursive;
+    margin: 2px 0;
+    padding: 0;
+}
+
+#messageText p {
+    margin: 2rem;
+}
+
+#modal > div {
+    position: relative;
+}
+
+span.ecks {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 4rem;
+    color: #999;
+    user-select: none;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+    #grid {
+        width: auto;
+    }
+    #grid > .cell, #grid.small > .cell, #grid.medium > .cell {
+        width: 40px;
+        height: 40px;   
+        font-size: 2.3rem;
+
+    }
+    #info {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+
+    option, select, label, button {
+        font-size: 1.8rem;
+    }
+
+    h1 {
+        margin: 0;
+        padding: 4vmin 0 0 0;
+        font-size: 6rem;
+    }
+
+    #helpText {
+        font-size: 2.5rem;
+        line-height: 3.5rem;
+    }
+}

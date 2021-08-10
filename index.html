@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="assets/js/app.js"></script>
+    <title>MineSweeper</title>
+</head>
+
+<body>
+    <h1 id="title">MineSweeper</h1>
+    <div id="controls">
+        <img id="help" src="./assets/img/help.png" />
+        <div id="difficulty">
+            <label for="boardSize">Difficulty</label>
+            <select id="boardSize">
+                <option value="small">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="large">Hard</option>
+                <option value="xlarge">Insane</option>
+            </select>
+        </div>
+        <button id="resetButton">Reset</button>
+
+    </div>
+    <div id="info">
+        <div id="flags-left">
+            <img src="assets/img/Flag.ico">
+            Flags Remaining:
+            <span></span>
+        </div>
+        <div id="timer">
+            Timer: <span id="time" class="time">0:00</span>
+        </div>
+    </div>
+    <div id="grid">
+    </div>
+    <div id="copy">
+        <p>&copy; Copyright 2021 Harkaran R.</p>
+    </div>
+    <div id="modal">
+        <div id="messageText">
+            <h1></h1>
+            <p></p>
+            <button id="modalReset">Play Again!</button>
+            <span class="ecks">X</span>
+        </div>
+        <div id="helpText">
+            <ul>
+                <li><strong>Left Click</strong> to uncover a square. </li>
+                <li>The number in some squares tells you how many <strong>Mines</strong> are next to that square.</li>
+                <li><strong>Right Click</strong> to mark a square with a flag if you think it contains a mine.</li>
+                <li>You start with as many <strong>Flags</strong> as there are <strong>Mines.</strong></li>
+                <li><strong>Double Click</strong> or <strong>Click Both Mouse Buttons</strong> on a numbered square once
+                    you have marked all the mines around it. This will reveal the surrounding squares.</li>
+                <li><strong>Mark all the mines with a flag to win!</strong></li>
+            </ul>
+            <span class="ecks">X</span>
+        </div>
+    </div>
+</body>
+<script src="assets/js/confetti.js"></script>
+
+</html>
